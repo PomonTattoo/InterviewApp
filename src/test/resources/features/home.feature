@@ -6,7 +6,7 @@ Feature: Home page tests
     When I enter password "test123"
     And I click a button "Login"
 
-    @test2
+    @test2 ///PUSHING THIS AGAIN
     Scenario: IN-2 User Access
       Then Verify "Sign out" button is displayed
 
