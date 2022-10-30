@@ -35,6 +35,14 @@ public class HomeSteps implements CommonPage {
         BrowserUtils.click(page.loginBtn);
     }
 
+    @Then(": Verify All Topics button is enable")
+    public void verifyAllTopicsButtonIsEnable() {
+        BrowserUtils.isEnabled(
+                BrowserUtils.getDriver().findElement(
+                        By.xpath("//button[text()='All Topics']"))
+        );
+    }
+
 //    @Then("Verify title of the page")
 //    public void verifyTitleOfThePage() {
 //        System.out.println("Test");
