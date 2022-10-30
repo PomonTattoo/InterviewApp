@@ -10,5 +10,14 @@ Feature: Home page tests
     Scenario: IN-2 User Access
       Then Verify "Sign out" button is displayed
 
+  @test5
+  Scenario: As a user I need an option to add a question in dashboards like "Coding" and "Soft Skills".
+  Question content should accept letter, number and any special characters.
+    When  I click a navBtn "Coding"
+    And I click a windowBtn "Enter new question"
+    And Enter content "why 123 is not equals ###"
+    And I click a windowBtn "Enter"
+    Then Verify "why 123 is not equals ###" is dispayed
+
 
 
