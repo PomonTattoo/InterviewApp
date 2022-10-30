@@ -35,8 +35,9 @@ public class HomeSteps implements CommonPage {
         BrowserUtils.click(page.loginBtn);
     }
 
-//    @Then("Verify title of the page")
-//    public void verifyTitleOfThePage() {
-//        System.out.println("Test");
-//    }
+    @Then("Verify page title is {string}")
+    public void verify_page_title_is(String title) {
+        BrowserUtils.assertEquals(BrowserUtils.getDriver().getTitle(), title);
+    }
+
 }

@@ -9,9 +9,9 @@ Feature: Home page tests
     When I enter password "test123"
     And I click a button "Login"
 
-#    @test2
-#    Scenario: IN1 Page Title
-#      Then Verify title of the page
+    @test2
+    Scenario: IN-1 Page Title
+      Then Verify page title is "Interview App"
 
 
 
