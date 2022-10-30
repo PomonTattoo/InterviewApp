@@ -9,6 +9,8 @@ import pages.CommonPage;
 import pages.HomePage;
 import utils.BrowserUtils;
 
+import java.util.List;
+
 public class HomeSteps implements CommonPage {
     HomePage page;
     public HomeSteps() {
@@ -30,10 +32,43 @@ public class HomeSteps implements CommonPage {
         BrowserUtils.sendKeys(page.password, password);
     }
 
-    @And("I click a button {string}")
-    public void iClickAButton(String login) {
-        BrowserUtils.click(page.loginBtn);
+    @Then("I click a button {string}")
+    public void iClickAButton(String button) {
+        switch (button.toLowerCase()) {
+            case "login":
+                BrowserUtils.click(page.loginBtn);
+                break;
+            case "add don't":
+                BrowserUtils.click(page.addDontBtn);
+                break;
+            default:
+                BrowserUtils.click(BrowserUtils.getDriver().findElement(
+                        By.xpath(String.format(XPATH_TEMPLATE_BUTTON, button))));
+        }
     }
+
+    @Then("Verify there are three items on dashboard:")
+    public void verifyThereAreItemsOnDashboard(List<String> dataTable) {
+        for(String each: dataTable){
+            BrowserUtils.isDisplayed(
+                    BrowserUtils.getDriver().findElement(
+                            By.xpath(String.format(XPATH_TEMPLATE_BUTTON, each))
+                    )
+            );
+        }
+    }
+
+    @Then("I type {string} in a {string} text field")
+    public void iTypeInATextField(String value, String string) {
+        if (string.equalsIgnoreCase("do's")) {
+            BrowserUtils.sendKeys(page.doTxtField, value);
+
+        } else {
+            BrowserUtils.sendKeys(page.dontTextField, value);
+        }
+
+    }
+
 
     @Then(": Verify All Topics button is enable")
     public void verifyAllTopicsButtonIsEnable() {
@@ -47,4 +82,5 @@ public class HomeSteps implements CommonPage {
 //    public void verifyTitleOfThePage() {
 //        System.out.println("Test");
 //    }
+
 }
