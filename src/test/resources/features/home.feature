@@ -29,6 +29,11 @@ Feature: Home page tests
     And I type "<Do something fun in 5 days>" in a "Don't" text field
     And I click a button "Enter"
 
+
+  @Test07
+  Scenario: Verify All Topics button is enable
+    Then : Verify All Topics button is enable
+
   @IN4c
   Scenario: Negative test: As a user I should have an option to add a statement in Do's sections
     When I click a button "Add do "
@@ -40,6 +45,7 @@ Feature: Home page tests
     And I click a button "Add don't"
     And I type "<!@#$#$%$#>" in a "Don't" text field
     And I click a button "Enter"
+
 
 
 
