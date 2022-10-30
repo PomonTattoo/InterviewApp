@@ -22,8 +22,22 @@ Feature: Home page tests
   @IN4b
     Scenario: As a user I should have an option to add a statement in Dont's sections
     And I click a button "Add don't"
-    And I type "<Do something fun in 4 days>" in a "Don't" text field
+    And I type "<Do something fun in 5 days>" in a "Don't" text field
     And I click a button "Enter"
+
+  @IN4c
+  Scenario: Negative test: As a user I should have an option to add a statement in Do's sections
+    When I click a button "Add do "
+    Then I type "<!@#$#$%$#>" in a "Do's" text field
+    And I click a button "Enter"
+
+  @IN4d
+  Scenario: Negative test: As a user I should have an option to add a statement in Dont's sections
+    And I click a button "Add don't"
+    And I type "<!@#$#$%$#>" in a "Don't" text field
+    And I click a button "Enter"
+
+
 
 
 
