@@ -14,6 +14,7 @@ public class HomePage {
     @FindBy(id = "sample")
     public WebElement sampleElement;
 
-    @FindBy(xpath = "" )
+    @FindBy(xpath = "//u[text()='Sign out']" )
+    public WebElement signoutBtn;
 
 }
