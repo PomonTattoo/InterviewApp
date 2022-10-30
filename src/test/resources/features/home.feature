@@ -39,7 +39,3 @@ Feature: Home page tests
 
 
 
-
-
-
-
