@@ -87,12 +87,21 @@ public class HomeSteps implements CommonPage {
         );
     }
 
-//    @Then("Verify title of the page")
-//    public void verifyTitleOfThePage() {
-//        System.out.println("Test");
-//    }
 
 
+
+    @Then("Verify link text {string} is display")
+    public void verifyLinkTextIsDisplay(String link) {
+        BrowserUtils.isDisplayed(BrowserUtils.getDriver().findElement
+                (By.xpath(String.format(XPATH_TEMPLATE_LINKTEXT, link))));
+    }
+
+    @Then("I click a button sign out")
+    public void iClickAButtonSignOut(String button) {
+        BrowserUtils.isDisplayed(BrowserUtils.getDriver().findElement
+                (By.xpath(String.format(XPATH_TEMPLATE_BUTTON, button))));
+
+    }
 }
 
 

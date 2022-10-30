@@ -6,9 +6,6 @@ Feature: Home page tests
     When I enter password "test123"
     Then I click a button "Login"
 
-    @test2 ///PUSHING THIS AGAIN
-    Scenario: IN-2 User Access
-      Then Verify "Sign out" button is displayed
 
   @IN3
   Scenario: When I log in as any user there should always be 3 dashboards present
@@ -45,6 +42,18 @@ Feature: Home page tests
     And I click a button "Add don't"
     And I type "<!@#$#$%$#>" in a "Don't" text field
     And I click a button "Enter"
+
+    @IN-9
+    Scenario: Test Sign Out button navigate back to log in page
+      Then I click a button sign out
+
+    @IN-10
+    Scenario: Test admin logs in Manage Access button is visible
+      Given I open URL of login page
+      Then I enter username "admin@yahoo.com"
+      And I enter username "admin123"
+      And I click a button "LOGIN"
+      Then Verify link text "Manage Access" is display
 
 
 

@@ -35,4 +35,7 @@ public class HomePage {
     @FindBy(xpath = "//button[text()=\"Add don't \"]")
     public WebElement addDontBtn;
 
+   // @FindBy(xpath = "//u[text()='Sign out']")
+   // public WebElement SignoutBtn;
+
 }
