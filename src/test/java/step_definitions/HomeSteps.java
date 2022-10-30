@@ -51,7 +51,7 @@ public class HomeSteps implements CommonPage {
     public void verifyIsDispayed(String text) {
         BrowserUtils.assertTrue(page.field2.getText().contains(text));
     }
-}
+
 
 
     @Given("I open URL of login page")
