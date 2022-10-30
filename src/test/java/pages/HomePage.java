@@ -14,6 +14,6 @@ public class HomePage {
     @FindBy(id = "sample")
     public WebElement sampleElement;
 
-
+    @FindBy(xpath = "" )
 
 }
