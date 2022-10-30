@@ -19,5 +19,11 @@ Feature: Home page tests
     And I click a windowBtn "Enter"
     Then Verify "why 123 is not equals ###" is dispayed
 
-
+@test6
+Scenario: As a user I should be able able to edit or delete the question i have added
+  When  I click a navBtn "Coding"
+  And I click a windowBtn "Enter new question"
+  And Enter content "why 123 is not equals ###"
+  And I click a windowBtn "Enter"
+  Then Verify I can delete the content by pressing "delete"
 

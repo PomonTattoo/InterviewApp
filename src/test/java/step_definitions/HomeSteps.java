@@ -39,4 +39,10 @@ public class HomeSteps implements CommonPage {
     public void verifyIsDispayed(String text) {
         BrowserUtils.assertTrue(page.field2.getText().contains(text));
     }
+
+
+    @Then("Verify I can delete the content by pressing {string}")
+    public void verifyICanDeleteTheContentByPressing(String deleteBtn) {
+        BrowserUtils.isEnabled(page.deleteBtn);
+    }
 }

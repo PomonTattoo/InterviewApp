@@ -18,4 +18,7 @@ public class HomePage {
 
     @FindBy(xpath = "(//a[@href='javascript:;'])[1]")
     public WebElement field2;
+
+    @FindBy(xpath = "(//button[@class='btn btn-sm-outline-danger ml-1'])[1]")
+    public WebElement deleteBtn;
 }
