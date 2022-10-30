@@ -11,8 +11,14 @@ public class HomePage {
         PageFactory.initElements(BrowserUtils.getDriver(), this);
     }
 
-    @FindBy(id = "sample")
-    public WebElement sampleElement;
+    @FindBy(xpath = "//input[@placeholder='Enter Username']")
+    public WebElement username;
+
+    @FindBy(xpath = "//input[@placeholder='Enter Password']")
+    public WebElement password;
+
+    @FindBy(xpath = "//button[text()='Login']")
+    public WebElement loginBtn;
 
 
 
