@@ -9,6 +9,8 @@ import pages.CommonPage;
 import pages.HomePage;
 import utils.BrowserUtils;
 
+import java.util.List;
+
 public class HomeSteps implements CommonPage {
     HomePage page;
     public HomeSteps() {
@@ -35,8 +37,16 @@ public class HomeSteps implements CommonPage {
         BrowserUtils.click(page.loginBtn);
     }
 
-//    @Then("Verify title of the page")
-//    public void verifyTitleOfThePage() {
-//        System.out.println("Test");
-//    }
+    @Then("Verify there are three items on dashboard:")
+    public void verifyThereAreItemsOnDashboard(List<String> dataTable) {
+        for(String each: dataTable){
+            BrowserUtils.isDisplayed(
+                    BrowserUtils.getDriver().findElement(
+                            By.xpath(String.format(XPATH_TEMPLATE_BUTTON, each))
+                    )
+            );
+        }
+    }
+
+
 }
