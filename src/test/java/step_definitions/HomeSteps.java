@@ -1,10 +1,11 @@
 package step_definitions;
 
 import io.cucumber.java.en.And;
-import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+
 import org.openqa.selenium.By;
+
 import pages.CommonPage;
 import pages.HomePage;
 import pages.LoginPage;
@@ -30,19 +31,46 @@ public class HomeSteps implements CommonPage {
     public void iClickAWindowBtn(String windowBtn) {
         BrowserUtils.click(page.newQuestionBtn);
     }
+
     @And("Enter content {string}")
     public void enterContent(String content) {
         BrowserUtils.sendKeys(page.field, content);
     }
 
-    @Then("Verify {string} is dispayed")
-    public void verifyIsDispayed(String text) {
-        BrowserUtils.assertTrue(page.field2.getText().contains(text));
+    @And("I click a {string}")
+    public void iClickA(String btn) {
+        BrowserUtils.click(page.deleteBtn);
+
+    }
+    @Then("Verify the field displays {string} you entered")
+    public void verifyTheFieldDisplaysYouEntered(String question) {
+        BrowserUtils.isDisplayed(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT_CONTAINS , question))));
     }
 
 
-    @Then("Verify I can delete the content by pressing {string}")
-    public void verifyICanDeleteTheContentByPressing(String deleteBtn) {
-        BrowserUtils.isEnabled(page.deleteBtn);
+    @Then("Verify the field doesn't display {string} is deleted")
+    public void verifyTheFieldDoesnTDisplayIsDeleted(String question) {
+        BrowserUtils.assertTrue(BrowserUtils.isEnabled(page.deleteBtn));
+
+    }
+
+    @And("I click {string} button")
+    public void iClickButton(String edit) {
+        BrowserUtils.click(page.editBtn);
+    }
+
+    @And("I enter {string}")
+    public void iEnter(String text) {
+page.textArea.sendKeys(text);
+    }
+
+    @And("I click {string}")
+    public void iClick(String submit) {
+        BrowserUtils.click(page.submitBtn);
+    }
+
+    @Then("Verify if {string} text changed")
+    public void verifyIfTextChanged(String text) {
+        BrowserUtils.assertTrue(page.field2.getText().contains(text));
     }
 }

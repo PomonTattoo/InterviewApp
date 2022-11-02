@@ -16,14 +16,26 @@ Feature: Home page tests
     When  I click a navBtn "Coding"
     And I click a windowBtn "Enter new question"
     And Enter content "why 123 is not equals ###"
-    And I click a windowBtn "Enter"
-    Then Verify "why 123 is not equals ###" is dispayed
+    And I click a navBtn "Enter"
+    Then Verify the field displays "why 123 is not equals ###" you entered
 
-@test6
-Scenario: As a user I should be able able to edit or delete the question i have added
+@test6a
+Scenario: As a user I should be able able to delete the question i have added
   When  I click a navBtn "Coding"
   And I click a windowBtn "Enter new question"
-  And Enter content "why 123 is not equals ###"
-  And I click a windowBtn "Enter"
-  Then Verify I can delete the content by pressing "delete"
+  And Enter content "what time is it?"
+  And I click a navBtn "Enter"
+  And  I click a "delete"
+  Then Verify the field doesn't display "what time is it?" is deleted
+
+@test6b
+Scenario: As a user I should be able able to edit the question i have added
+  When  I click a navBtn "Coding"
+  And I click a windowBtn "Enter new question"
+  And Enter content "what time is it?"
+  And I click a navBtn "Enter"
+  And I click "edit" button
+  And I enter "It is 10"
+  And I click "submit"
+  Then Verify if "what time is it? It is 10" text changed
 
