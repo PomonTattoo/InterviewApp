@@ -44,6 +44,7 @@ public class LoginSteps implements CommonPage {
 
     @Then("Verify {string} button is displayed")
     public void verifyButtonIsDisplayed(String signOutBtn) {
+
         BrowserUtils.isDisplayed(BrowserUtils.getDriver().findElement(By.xpath(String.format(
                 XPATH_TEMPLATE_TEXT_CONTAINS, signOutBtn
         ))));
