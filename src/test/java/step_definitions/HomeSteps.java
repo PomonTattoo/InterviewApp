@@ -78,6 +78,7 @@ page.textArea.sendKeys(text);
 
     @Then("Verify if {string} text changed")
     public void verifyIfTextChanged(String text) {
+        BrowserUtils.assertTrue(page.field2.getText().contains(text));
     }
 
     @Given("I open url of homepage")
@@ -89,23 +90,6 @@ page.textArea.sendKeys(text);
     public void verifyIsDispayed(String text) {
 
         BrowserUtils.assertTrue(page.field2.getText().contains(text));
-    }
-
-
-
-    @Given("I open URL of login page")
-    public void i_open_url_of_login_page() {
-        BrowserUtils.getDriver();
-    }
-
-    @When("I enter username {string}")
-    public void i_enter_username(String username) {
-        BrowserUtils.sendKeys(page.username, username);
-
-    }
-    @When("I enter password {string}")
-    public void i_enter_password(String password) {
-        BrowserUtils.sendKeys(page.password, password);
     }
 
     @Then("I click a button {string}")
