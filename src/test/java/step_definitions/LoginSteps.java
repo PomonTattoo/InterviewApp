@@ -32,11 +32,6 @@ public class LoginSteps implements CommonPage {
         BrowserUtils.sendKeys(page.password, password);
     }
 
-    @And("I click a button {string}")
-    public void iClickAButton(String login) {
-        BrowserUtils.click(page.loginBtn);
-    }
-
     @Then("Verify page title is {string}")
     public void verify_page_title_is(String title) {
         BrowserUtils.assertEquals(BrowserUtils.getDriver().getTitle(), title);
